@@ -1,36 +1,57 @@
-import { baseAxios } from '../index'
+import { baseAxios, api_key } from '../index'
 
 export const topRatedMovies = (dispatch, cb) => {
-    console.log("jalan toprated")
-    cb&&cb("success")
-    // dispatch({type: "SET_MOVIES", data: "jalan"})
-    // baseAxios({
-    //     method: 'get',
-    //     headers: {
-    //         admintoken: localStorage.getItem('codeoadmin')
-    //     },
-    //     url: `/infoLaunchpad/${id}`
-    // })
-    // .then((response) => {
-    //     console.log(response)
-    //     // cb&&cb(data.data)
-    // })
-    // .catch((err) => {
-    //     console.log(err)
-    // }) 
+    baseAxios.get(`/movie/top_rated?api_key=${api_key}&&page=1`).then(({data}) => {
+        if(data) {
+            dispatch({type: "SET_MOVIES", data: {data:data.results, page:data.page, totalPage:data.total_pages}})
+            cb&&cb("success")
+        }else{
+            cb&&cb("error")
+        }
+    })
+    .catch((err) => {
+        cb&&cb("error")
+    })
 }
 
 export const popularMovies = (dispatch, cb) => {
-    console.log("jalan popular")
-    cb&&cb("success")
+    baseAxios.get(`/movie/popular?api_key=${api_key}&&page=1`).then(({data}) => {
+        if(data) {
+            dispatch({type: "SET_MOVIES", data: {data:data.results, page:data.page, totalPage:data.total_pages}})
+            cb&&cb("success")
+        }else{
+            cb&&cb("error")
+        }
+    })
+    .catch((err) => {
+        cb&&cb("error")
+    })
 }
 
 export const upcomingMovies = (dispatch, cb) => {
-    console.log("jalan upcomming")
-    cb&&cb("success")
+    baseAxios.get(`/movie/upcoming?api_key=${api_key}&&page=1`).then(({data}) => {
+        if(data) {
+            dispatch({type: "SET_MOVIES", data: {data:data.results, page:data.page, totalPage:data.total_pages}})
+            cb&&cb("success")
+        }else{
+            cb&&cb("error")
+        }
+    })
+    .catch((err) => {
+        cb&&cb("error")
+    })
 }
 
 export const nowPlayingMovies = (dispatch, cb) => {
-    console.log("jalan now playing")
-    cb&&cb("success")
+    baseAxios.get(`/movie/now_playing?api_key=${api_key}&&page=1`).then(({data}) => {
+        if(data) {
+            dispatch({type: "SET_MOVIES", data: {data:data.results, page:data.page, totalPage:data.total_pages}})
+            cb&&cb("success")
+        }else{
+            cb&&cb("error")
+        }
+    })
+    .catch((err) => {
+        cb&&cb("error")
+    })
 }

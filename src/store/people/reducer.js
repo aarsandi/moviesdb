@@ -1,5 +1,5 @@
 const initialState = {
-    data: null,
+    data : null,
     page: null,
     totalPage: null
 };
@@ -7,7 +7,7 @@ const initialState = {
 const reducer = ((state = initialState, action) => {
     let { type, data } = action;
     switch (type) {
-        case "SET_TVSHOWS": 
+        case "SET_PEOPLE": 
             return {
                 ...state,
                 data: data.data,

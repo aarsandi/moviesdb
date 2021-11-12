@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 function Header() {
+    const history = useHistory()
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <p className="navbar-brand">Logo</p>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <p className="navbar-brand mx-5 pointer" onClick={() => history.push('/')}>PilmDb</p>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -34,6 +36,9 @@ function Header() {
                             <Link to="/tvshows/on-the-air" className="dropdown-item">On The Air</Link>
                             <Link to="/tvshows/airing-today" className="dropdown-item">Airing Today</Link>
                         </div>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/people" className="nav-link">Popular People</Link>
                     </li>
                 </ul>
             </div>

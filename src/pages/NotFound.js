@@ -5,13 +5,11 @@ function NotFound() {
     const history = useHistory()
     
     return (
-        <div className="" style={{
-            backgroundColor: "#0B0C22",
+        <div style={{
             position: 'fixed',
             top: 0,
             left: 0, right: 0}}>
-                {/* <Header /> */}
-            <div className="row align-items-center justify-content-center " style={{height: "100vh"}}>
+            <div className="row align-items-center justify-content-center" style={{height: "100vh"}}>
                 <div className="col-12 text-center">
                     <h1 style={{
                         fontSize: '60px',

@@ -1,5 +1,7 @@
 const initialState = {
-    data: "movies"
+    data: null,
+    page: null,
+    totalPage: null
 };
 
 const reducer = ((state = initialState, action) => {
@@ -8,7 +10,9 @@ const reducer = ((state = initialState, action) => {
         case "SET_MOVIES": 
             return {
                 ...state,
-                data: data
+                data: data.data,
+                page: data.page,
+                totalPage: data.totalPage
             }
 
         default : 
