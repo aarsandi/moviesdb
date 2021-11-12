@@ -7,6 +7,7 @@ import Header from '../components/Header'
 import Home from './Home'
 import Movies from './Movies'
 import Tvshows from './Tvshows'
+import People from './People'
 import NotFound from './NotFound'
 
 function MainRoute() {
@@ -25,6 +26,9 @@ function MainRoute() {
                 </Route>
                 <Route exact path="/movies">
                     <Movies/>
+                </Route>
+                <Route exact path="/people">
+                    <People/>
                 </Route>
                 <Route exact path="/404">
                     <NotFound/>

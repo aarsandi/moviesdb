@@ -7,6 +7,50 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.content-right {
+  position: fixed;
+  background: #000;
+  height: 100%;
+  right: 0;
+  color: rgb(248, 234, 234);
+}
+
+.poster-img {
+  position: absolute;
+  z-index: 1;
+  top: 210px;
+  left: 20px;
+  width: 150px;
+}
+
+.fav-toggle {
+  position: absolute;
+  z-index: 1;
+  top: 20px;
+  left: 20px;
+  color: white;
+  font-size: 30px;
+}
+.pointer {cursor: pointer;}
+.fav-toggle :hover {
+  color: red;
+}
+
+.toggle-menu-btn {
+  position: absolute;
+  z-index: 1;
+}
+
+.my-icon {
+  font-size: 50px;
+}
+
+.search-input {
+  border: none;
+  font-size: 17px;
+  padding: 6px 10px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

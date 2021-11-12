@@ -1,39 +1,57 @@
-import { baseAxios } from '../index'
+import { baseAxios, api_key } from '../index'
 
 export const topRatedTvShows = (dispatch, cb) => {
-    console.log("jalan toprated")
-    cb&&cb("success")
-    // dispatch({type: "SET_TVSHOWS", data: "jalan"})
-    // baseAxios({
-    //     method: 'get',
-    //     headers: {
-    //         admintoken: localStorage.getItem('codeoadmin')
-    //     },
-    //     url: `/infoLaunchpad/${id}`
-    // })
-    // .then((response) => {
-    //     console.log(response)
-    //     // cb&&cb(data.data)
-    // })
-    // .catch((err) => {
-    //     console.log(err)
-    // }) 
+    baseAxios.get(`/tv/top_rated?api_key=${api_key}&&page=1`).then(({data}) => {
+        if(data) {
+            dispatch({type: "SET_TVSHOWS", data: {data:data.results, page:data.page, totalPage:data.total_pages}})
+            cb&&cb("success")
+        }else{
+            cb&&cb("error")
+        }
+    })
+    .catch((err) => {
+        cb&&cb("error")
+    })
 }
 
 export const popularTvShows = (dispatch, cb) => {
-    console.log("jalan popular")
-    // dispatch({type: "SET_TVSHOWS", data: "jalan"})
-    cb&&cb("success")
+    baseAxios.get(`/tv/popular?api_key=${api_key}&&page=1`).then(({data}) => {
+        if(data) {
+            dispatch({type: "SET_TVSHOWS", data: {data:data.results, page:data.page, totalPage:data.total_pages}})
+            cb&&cb("success")
+        }else{
+            cb&&cb("error")
+        }
+    })
+    .catch((err) => {
+        cb&&cb("error")
+    })
 }
 
 export const onAirTvShows = (dispatch, cb) => {
-    console.log("jalan on the air")
-    // dispatch({type: "SET_TVSHOWS", data: "jalan"})
-    cb&&cb("success")
+    baseAxios.get(`/tv/on_the_air?api_key=${api_key}&&page=1`).then(({data}) => {
+        if(data) {
+            dispatch({type: "SET_TVSHOWS", data: {data:data.results, page:data.page, totalPage:data.total_pages}})
+            cb&&cb("success")
+        }else{
+            cb&&cb("error")
+        }
+    })
+    .catch((err) => {
+        cb&&cb("error")
+    })
 }
 
 export const todayTvShows = (dispatch, cb) => {
-    console.log("jalan airing today")
-    // dispatch({type: "SET_TVSHOWS", data: "jalan"})
-    cb&&cb("success")
+    baseAxios.get(`/tv/airing_today?api_key=${api_key}&&page=1`).then(({data}) => {
+        if(data) {
+            dispatch({type: "SET_TVSHOWS", data: {data:data.results, page:data.page, totalPage:data.total_pages}})
+            cb&&cb("success")
+        }else{
+            cb&&cb("error")
+        }
+    })
+    .catch((err) => {
+        cb&&cb("error")
+    })
 }
